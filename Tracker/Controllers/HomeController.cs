@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using ProjectName.Models;
 
-namespace ProjectName.Controllers
+namespace Tracker.Controllers
 {
   public class HomeController : Controller
   {
