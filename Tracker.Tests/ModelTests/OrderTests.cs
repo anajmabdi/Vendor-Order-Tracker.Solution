@@ -1,13 +1,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tracker.Models;
+using System.Collections.Generic;
 using System;
+using Tracker.Models;
 
 namespace VendorOrder.Tests
 {
 
 [TestClass]
-  public class OrderTests
+  public class OrderTests : IDisposable
   {
+    public void Dispose()
+    {
+        Order.ClearAll();
+    }
+
     [TestMethod]
     public void
     OrderConstructor_CreatesInstanceOfOrder_Order()
@@ -20,7 +26,6 @@ namespace VendorOrder.Tests
 
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
-
 
     [TestMethod]
     public void
@@ -39,6 +44,7 @@ namespace VendorOrder.Tests
       Assert.AreEqual(description, descriptionCheck);
       Assert.AreEqual(price, priceCheck);
     }
+
     [TestMethod]
     public void GetDate_AccessDateTimeClass_Order() 
     {
@@ -49,6 +55,18 @@ namespace VendorOrder.Tests
       DateTime result = newOrder.Today;
       
       Assert.AreEqual(date, result);
+    }
+    
+    [TestMethod]
+    public void GetAll_GetsAllOrders_Order()
+    {
+      Order Order1 = new Order("title", "description", 5);
+      Order Order2 = new Order("title", "description", 5);
+      List<Order> newList = new List<Order>{Order1, Order2};
+
+      List<Order> result = Order.GetAll();
+
+      CollectionAssert.AreEqual(result, newList);
     }
   }
 }

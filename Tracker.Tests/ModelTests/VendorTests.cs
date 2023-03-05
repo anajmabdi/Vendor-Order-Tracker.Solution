@@ -1,11 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tracker.Models;
+using System;
 
 namespace VendorOrder.Tests
 {
     [TestClass]
-    public class VendorTests
+    public class VendorTests : IDisposable
+  {
+    public void Dispose()
     {
+        Order.ClearAll();
+    }
+
         [TestMethod]
         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
         {

@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 namespace Tracker.Models
 {
   public class Order
   {
+    private static List<Order> _instances = new List<Order> {} ;
     public string Title { get; set; }
     public string Description { get; set; }
     public int Price { get; set; }
@@ -14,6 +16,11 @@ namespace Tracker.Models
       Description = description;
       Price = price;
       Today = DateTime.Today;
+    }
+
+    public static void ClearAll()
+    {
+        _instances.Clear();
     }
   }
 }

@@ -12,8 +12,15 @@ namespace Tracker.Models
 
         public Vendor(string name, string description)
         {
+            _instances.Add(this);
             Name = name;
             Description = description;
         }
+
+        public static void ClearAll()
+        {
+            _instances.Clear();
+        }
+        
     }
 }
