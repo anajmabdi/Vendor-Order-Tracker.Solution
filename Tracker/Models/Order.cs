@@ -8,16 +8,16 @@ namespace Tracker.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
-        public DateTime Today { get; }
+        public Date { get; }
         public int Id { get; }
 
-        public Order(string title, string description, int price)
+        public Order(string title, string description, int price, int date)
         {
             _instances.Add(this);
             Title = title;
             Description = description;
             Price = price;
-            Today = DateTime.Today;
+            Date = date;
             Id = _instances.Count;
         }
 
