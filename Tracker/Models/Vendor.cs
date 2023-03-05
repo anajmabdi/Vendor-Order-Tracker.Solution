@@ -8,6 +8,7 @@ namespace Tracker.Models
         public string Description { get; set; }
         private static List<Vendor> _instances = new List<Vendor> { };
         public List<Order> Orders { get; set; }
+        
 
 
         public Vendor(string name, string description)

@@ -78,5 +78,18 @@ namespace VendorOrder.Tests
 
             Assert.AreEqual(1, result);
         }
+
+        [TestMethod]
+        public void Find_GrabsCorrectOrder_Order()
+        {
+            Order newOrder1 = new Order("title", "description", 5);
+            Order newOrder2 = new Order("title", "description", 5);
+
+            //Act
+            Order result = Order.Find(2);
+
+            //Assert
+            Assert.AreEqual(newOrder2, result);
+        }
     }
 }
