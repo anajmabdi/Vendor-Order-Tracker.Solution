@@ -62,11 +62,22 @@ namespace VendorOrder.Tests
             Vendor newVendor1 = new Vendor("name", "description");
             Vendor newVendor2 = new Vendor("name", "description");
 
-            //Act
             Vendor result = Vendor.Find(2);
 
-            //Assert
             Assert.AreEqual(newVendor2, result);
         }
+
+        [TestMethod]
+        public void AddOrder_AssociatesOrderWithVendor_OrderList()
+        {
+            //Arrange
+            Order newOrder = new Order("title", "description", 5);
+            List<Order> newList = new List<Order> { newOrder };
+            Vendor newVendor = new Vendor("name", "description");
+            newVendor.AddOrder(newOrder);
+            List<Order> result = newVendor.Orders;
+
+            CollectionAssert.AreEqual(newList, result);
+    }
     }
 }

@@ -10,14 +10,13 @@ namespace Tracker.Models
         public List<Order> Orders { get; set; }
         public int Id { get; }
 
-
-
         public Vendor(string name, string description)
         {
             _instances.Add(this);
             Name = name;
             Description = description;
             Id = _instances.Count;
+            Orders = new List<Order>{};
         }
 
         public static void ClearAll()
@@ -33,6 +32,11 @@ namespace Tracker.Models
         public static Vendor Find(int searchId)
         {
             return _instances[searchId - 1];
+        }
+
+        public void AddOrder(Order order)
+        {
+            Orders.Add(order);
         }
     }
 }
