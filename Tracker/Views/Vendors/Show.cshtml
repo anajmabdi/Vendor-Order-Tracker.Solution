@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Tracker.Models;
+
+<h3>These are all the purchases this vendor has made:</h3>
+
+<ol>
+@foreach (Order order in @Model["order"])
+{
+    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a></li>
+    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Description</a></li>
+    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Price</a></li>
+    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Today</a></li>
+}
+</ol>
+
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
+<p><a href='/vendors'>Return to vendor list</a></p>
+<p><a href='/'>Return to Main Page</a></p>z
