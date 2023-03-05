@@ -12,6 +12,7 @@ namespace Tracker.Models
 
     public Order(string title, string description, int price)
     {
+      _instances.Add(this);
       Title = title;
       Description = description;
       Price = price;
@@ -21,6 +22,11 @@ namespace Tracker.Models
     public static void ClearAll()
     {
         _instances.Clear();
+    }
+
+    public static List<Order> GetAll()
+    {
+      return _instances;
     }
   }
 }

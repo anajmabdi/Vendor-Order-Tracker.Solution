@@ -1,16 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tracker.Models;
+using System.Collections.Generic;
 using System;
 
 namespace VendorOrder.Tests
 {
     [TestClass]
     public class VendorTests : IDisposable
-  {
-    public void Dispose()
     {
-        Order.ClearAll();
-    }
+        public void Dispose()
+        {
+            Vendor.ClearAll();
+        }
 
         [TestMethod]
         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
@@ -32,6 +33,18 @@ namespace VendorOrder.Tests
 
             Assert.AreEqual(name, nameCheck);
             Assert.AreEqual(description, descriptionCheck);
+        }
+        
+        [TestMethod]
+        public void GetAll_GetsAllVendors_Vendor()
+        {
+            Vendor Vendor1 = new Vendor("name", "description");
+            Vendor Vendor2 = new Vendor("name", "description");
+            List<Vendor> newList = new List<Vendor> { Vendor1, Vendor2 };
+
+            List<Vendor> result = Vendor.GetAll();
+
+            CollectionAssert.AreEqual(result, newList);
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Tracker.Models
 
         public Vendor(string name, string description)
         {
-            _instances.Add(this);
             Name = name;
             Description = description;
         }
@@ -21,6 +20,6 @@ namespace Tracker.Models
         {
             _instances.Clear();
         }
-        
+
     }
 }
