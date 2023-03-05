@@ -34,17 +34,39 @@ namespace VendorOrder.Tests
             Assert.AreEqual(name, nameCheck);
             Assert.AreEqual(description, descriptionCheck);
         }
-        
+
         [TestMethod]
         public void GetAll_GetsAllVendors_Vendor()
         {
-            Vendor Vendor1 = new Vendor("name", "description");
-            Vendor Vendor2 = new Vendor("name", "description");
-            List<Vendor> newList = new List<Vendor> { Vendor1, Vendor2 };
+            Vendor vendor1 = new Vendor("name", "description");
+            Vendor vendor2 = new Vendor("name", "description");
+            List<Vendor> newList = new List<Vendor> { vendor1, vendor2 };
 
             List<Vendor> result = Vendor.GetAll();
 
             CollectionAssert.AreEqual(result, newList);
+        }
+        [TestMethod]
+        public void GetId_VendorsInstantiateWithId_Int()
+        {
+            Vendor vendor1 = new Vendor("name", "description");
+
+            int result = vendor1.Id;
+
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void Find_GrabsCorrectVendor_Vendor()
+        {
+            Vendor newVendor1 = new Vendor("name", "description");
+            Vendor newVendor2 = new Vendor("name", "description");
+
+            //Act
+            Vendor result = Vendor.Find(2);
+
+            //Assert
+            Assert.AreEqual(newVendor2, result);
         }
     }
 }
