@@ -32,12 +32,17 @@
 <p>&nbsp;</p>
 
 
-# <div align="center">Setup/Installation Requirements 
-<div align="center">1. Clone this repository to your desktop 
-<div align="center">2. Navigate to the top level of the directory
-<div align="center">3. Run 'dotnet restore VendorOrderTracker.Tests'
-<div align="center">4. Run 'dotnet build'
-<div align="center">5. Run 'dotnet run' to run the application.
+# <div align="center">Installation Requirements 
+You must make sure the following software packages are locally installed in order to use this application:
+
+- A preferred code editor (my case: VS Code)
+- .NET6
+
+## <div align="center">Setup
+- After cloning, navigate to this project's production directory ("Tracker") and run 'dotnet restore'. This will establish project-specific tools and dependencies that are listed in the project file.
+- Run 'dotnet test' after navigating to the test folder (Tracker.Tests) to run tests.
+
+- Run 'dotnet run' to start the server after navigating to "Tracker".
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
