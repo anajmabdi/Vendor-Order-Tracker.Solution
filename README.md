@@ -44,7 +44,7 @@
 
 
 # <div align="center"> Known bugs </div>
-## Need to make Vendor description unclickable so I removed textbox for description until then. Test on dates also need to be updated.
+## None
 <p>&nbsp;</p>
 
 #### License
